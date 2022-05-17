@@ -20,7 +20,17 @@ export default function App() {
   // 👉 5- Build a `changeStatus` function that takes an id and
   // changes the `married` from true to false and viceversa
   const changeStatus = (id) => {
-    console.log(id);
+    // Loop over our friends state array
+    // if the id of the current friend[i] === id that we're passing in
+    // change the marital status to the opposite of what it currently is...
+    const updatedFriends = friends.map(fr => {
+      if (fr.id === id) {
+        return { ...fr, married: !fr.married };
+      } else {
+        return fr;
+      }
+    })
+    setFriends(updatedFriends);
   }
 
   // STRETCH - Make a helper function that returns
